@@ -11,46 +11,40 @@
 #include <stdlib.h>
 #include <cstring>
 #include <string>
+#include <cmath>
 using namespace std;
 #define maxn 21
+
+int arr[1000001];
 int main()
 {
-    int a,b,c;
-    cin >> a >> b >> c;
-    if(a >= b){
-        if(b > c){
-            cout << b;
+    int t;
+    cin >> t;
+    while(t--){
+        int cnt[10];
+        for(int i=0;i<10;i++){
+            cnt[i] = 0;
         }
-        else cout << c;
-    }
-    else if(a < b){
-        if(a > c){
-            cout << a;
+        int a,b;
+        cin >> a >> b;
+        int i=1;
+        int tmp = 1;
+        while(1){
+            if(cnt[tmp]>=2){
+              break;
+            }
+            tmp = ((tmp%10)*a)%10;
+            cout << "tmp: " << tmp << '\n';
+            arr[i] = tmp;
+            cnt[tmp]++;
+            i++;
         }
-        else cout << c;
-    }
-    else{
-        if(c >= a){
-            cout << a;
+        for(int ii = 1; ii<=i;ii++){
+            cout << arr[ii] << ' ';
         }
+        cout <<'\n';
+        //3 9 7 1
+        //7%4 = 3
 
     }
-    else if(c >= a){
-        cout << a;
-    }
-    else if(b >= c){
-        cout << b;
-    }
-    else if(c > b){
-        cout << c;
-    }
-    else if(a > c){
-        if(c >= b){
-            cout << c; 
-        }    
-        else{
-            cout << b;
-        }
-    }
-    
 }
