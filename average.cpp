@@ -30,17 +30,13 @@ int main()
             sum += a[i];
         }
         int aver = sum/n;
-        int t = 0;
+        double t = 0.0, nn = n;
         for(int i=0;i<n;i++){
             if(aver < a[i]){
                 t++;
             }
         }
-        //cout << (double)t/n*100<< "%"<<'\n';
-        //printf("%f")
+        printf("%.3lf%%\n", t/n*100);
 
-        double tt = t/n*100;
-        cout << setprecision(7);
-        cout << tt <<"%" <<'\n';
     }
 }
