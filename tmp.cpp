@@ -57,7 +57,7 @@ later...
     
     
     
-   #include <iostream>
+#include <iostream>
 #include <algorithm>
 #include <iomanip>
 #include <queue>
@@ -108,3 +108,44 @@ int main()
         cout << arr[b]<<'\n'; 
     }
 }
+
+
+the last one
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+#include <cmath>
+using namespace std;
+#define maxn 21
+
+//int arr[1000001];
+int main()
+{
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int t;
+    cin >> t;
+    while(t--){
+        int a,b;
+        cin >> a >> b;
+        int tmp = 1;
+        for(int i=1;i<=b;i++){
+            tmp = (tmp*a)%10;
+            if(tmp == 0) tmp = 10;
+            //arr[i] = tmp;
+        }
+        //cout << arr[b]<<'\n'; 
+        cout << tmp <<'\n';
+    }
+}
+
