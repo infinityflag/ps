@@ -38,4 +38,5 @@ int main() {
 
         cout << (sum1>sum2?sum1:sum2);
 }
+상수 
 
