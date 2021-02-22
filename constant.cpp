@@ -1,3 +1,4 @@
+//테크닉이 너무 약하다;;;;
 #include <iostream>
 #include <vector>
 #include <algorithm>
