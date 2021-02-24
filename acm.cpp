@@ -21,8 +21,8 @@ int main() {
         int h,w,target;
         cin >> h >> w>>target;
         int cnt = 0;
-        for(int i=h;i>=1;i--){
-            for(int j=1;j<=w;j++){
+        for(int j=1;j<=h;j++){
+            for(int i=w;i>=1;i--){
                 a[i][j] = ++cnt;
             }
         }
