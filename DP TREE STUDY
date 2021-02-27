@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void dfs(int a[],vector<int> v[],int u, int p){
+    dp[u] = a[u-1];
+    
+    for(auto child: v[u]){
+        if(child == p){
+            continue;
+        }
+        dfs(a,v,child,u);
+        maxx = max(maxx, dp[child]);
+    }
+    dp[u] += maxx;
+}
+
+
+int main()
+{
+    
+    /*
+    GHHHGHH
+    HHGGGHH
+    GGHHHGG
+    GHHHGHH
+     */
+    
+}
