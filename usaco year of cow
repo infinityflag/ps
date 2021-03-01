@@ -1,0 +1,60 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+using namespace std;
+#define maxn 21
+string year[13] = {"Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox"};
+
+int check(string s){
+    int t;
+    if(s.substr(0,2) == "Ox"){
+        t = 0;
+    }
+    if(s.substr(0,3) == )
+    
+    if(s.substr(0,2) == "Ox" || s.substr(0,5) == "Tiger" || s.substr(0,6) == "Rabbit" || s.substr(0,6) == "Dragon" || s.substr(0,5) == "Snake" || ){
+        vector<string> v;
+        v.push_back(s);
+        for(int i =0;i< s.size();i++){
+            if(s.substr(i,6) == "before"){
+                12-t+1
+            }
+            else if(s.substr(i,5) == "after"){
+                12+i;]
+            }
+                    
+            12- i
+        }
+    }
+        
+        
+    
+}
+
+
+
+int main()
+{
+    //freopen("breedflip.in", "r", stdin);
+    //freopen("breedflip.out", "w", stdout);
+    int n;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        string s;
+        cin >> s;
+        check(s);
+        
+        
+    }
+    
+}
