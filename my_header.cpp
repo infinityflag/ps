@@ -7,9 +7,11 @@
 #include <map>
 #include <cstdlib>
 #include <cstdio>
+#include <cmath>
+#include <math.h>
 #include <vector>
 #include <stdlib.h>
 #include <cstring>
 #include <string>
 using namespace std;
-#define maxn 21
+typedef long long ll;
