@@ -48,3 +48,76 @@ int main()
         }
     }
 }
+
+
+
+second try
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+#include <cmath>
+using namespace std;
+#define maxn 21
+typedef long long ll;
+//int arr[1000001];
+int r[51];
+int c[51]; 
+int main()
+{   
+    int n,m;
+    cin >> n;
+    int x[n],y[n];
+    for(int i=0;i<n;i++){
+        cin >> x[i] >> y[i];
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(x[i] > x[j] && y[i] > y[j]){
+                r[i]++;
+            }
+        }
+    }
+    vector<int> v;
+    for(int i=1;i<=n;i++){
+        c[r[i]]++;
+        if(c[r[i]]>=2){
+            v.push_back(i);
+        }
+    }
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            if(c[r[j]] >= 2){
+                r[i] = j;
+                break;
+            }
+        }
+    }
+    for(int i=1;i<=n;i++){
+        cout << r[i] << ' ';
+    }
+
+    for(int i=1,ra=1;i<=n;i++){
+        if(c[r[i]]>=2){
+            if(r[i] > 2){
+                
+            }
+        }
+        else{
+            cout << ra <<' ';
+            ra++;
+        }
+    }
+
+
+}
