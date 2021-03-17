@@ -1,0 +1,48 @@
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+using namespace std;
+#define maxn 51
+
+int prime[1000000];
+bool check[1000000];
+int p = 0;
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i=2;i<=n;i++){
+        check[i] = false;
+        for(int j=i*2;j*j<=n;j+=i){
+            if(!check[j]){
+                check[j] = true;
+                prime[p++] = j;
+            }
+        }
+    }
+    vector<int> ans;
+    int t = n;
+    for(int i=0;i<p;i++){
+        while(t % prime[i] == 0){
+            ans.push_back(prime[i]);
+            //what is wrong here?
+            t /= i;
+        }
+    }
+    sort(ans.begin(), ans.end());
+    for(int x:ans){
+        cout << x << '\n';
+    }
+    
+    
+}
+        
