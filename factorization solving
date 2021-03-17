@@ -22,25 +22,28 @@ int main()
     cin >> n;
     for(int i=2;i<=n;i++){
         check[i] = false;
-        for(int j=i*2;j*j<=n;j+=i){
-            if(!check[j]){
+        if(!check[i]){
+            for(int j=i*2;j*j<=n;j+=i){
                 check[j] = true;
                 prime[p++] = j;
             }
         }
+    }
+    
+    for(int i=0;i<p;i++){
+        cout << prime[i] <<' ';
     }
     vector<int> ans;
     int t = n;
     for(int i=0;i<p;i++){
         while(t % prime[i] == 0){
             ans.push_back(prime[i]);
-            //what is wrong here?
-            t /= i;
+            t /= prime[i];
         }
     }
     sort(ans.begin(), ans.end());
     for(int x:ans){
-        cout << x << '\n';
+        //cout << x << '\n';
     }
     
     
