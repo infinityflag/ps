@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+#include <cmath>
+using namespace std;
+#define maxn 21
+typedef long long ll;
+#define INF 1e9;
+void eratosthenes(vector<int>&a, int n){
+    bool prime[50000];
+    for(int i=1;i<50000;i++){
+        prime[i] = true; 
+    }
+    for(int i=2;i*i<=n;i++){
+        if(prime[i]==true){
+            a.push_back(i); 
+            for(int j=i*2;j*j<=n;j+=i){
+                prime[j] = false;
+            }   
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        int a,b;
+        cin >> a >> b;
+        vector<int> v_a,v_b;
+        eratosthenes(v_a,a);
+        eratosthenes(v_b,b);
+        for(int i: v_a){
+            cout << i <<' ';
+        }
+    }
+
+}
