@@ -2,12 +2,12 @@
 #include <string>
 #include <cstring>
 #include <vector>
-#include <algorihm>
+#include <algorithm>
 using namespace std;
 
 char ca[2] = {'C','J'};
 vector<string> v;
-int brute(string t){
+void brute(string t){
 	string s= t;
 	for(int i=0;i<s.size();i++){
 		if(s[i] == '?'){
@@ -15,7 +15,7 @@ int brute(string t){
 		}
 	}
 	v.push_back(s);
-	string s = t;
+	s = t;
 	for(int i=0;i<s.size();i++){
 		if(s[i] == '?'){
 			s[i] = ca[1];
@@ -32,7 +32,7 @@ int main() {
 		cin >> x>>y>>s;
 		brute(s);
 		int ans = 0;
-		for(int i=0;i<v.length();i++){
+		for(int i=0;i<v.size();i++){
 			for(int j=0;j<v[i].size();j++){
 				if(v[i][j] == 'C' && v[i][j+1] == 'J'){
 					ans += min(ans,x);
