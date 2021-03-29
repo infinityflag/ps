@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+//char a[100];
+int a[1000000];
+int sy[5];
+int f(int idx,int sum, int plus, char c){
+    f(idx, i+1,);
+    for(int i=0;i<4;i++){
+        if(sy[i]){
+            f(idx+1, sum, plus, c);
+
+
+            sy[i]--;
+        }
+        f(idx+1,sum + a[i], );
+        f(idx+1,sum - a[i], );
+    }
+}
+
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int n,m;
+    cin >> n >> m;
+    for(int i=0;i<4;i++){
+        cin >> sy[i];
+    }
+}
