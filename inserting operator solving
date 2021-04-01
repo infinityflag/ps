@@ -126,3 +126,86 @@ int main() {
     f(0);
     cout << ret1<< '\n' << ret2;
 }
+
+
+
+third try....
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+//char a[100];
+int a[1000000];
+int sy[5];
+int n,m;
+int maxn = -1e9;
+int minn = 1e9;
+int ret1 = -1e9;
+int ret2 = 1e9;
+int sum;
+void f(int idx){//idx번째의 수에 남은 toPick 개의 수를 모두 고르는 경우의 수
+    if(idx == n-1){
+        maxn = max(sum, maxn);
+        minn = min(minn, sum);
+        return;
+    }
+    /*
+    for(int i=0;i<n;i++){
+        sum += a[i];
+        f(idx+1, toPick-1);
+    }
+    */
+    for(int i=0;i<4;i++){
+        if(sy[i]>0){
+            if(i==0){
+                sum += a[idx]; 
+                sy[0]--;
+            }
+            if(i==1){
+                sum -= a[idx];
+                sy[1]--;
+            }
+            if(i==2){
+                sum *= a[idx];
+                sy[2]--;
+            }
+            if(i==3){
+                sum /= a[idx];
+                sy[3]--;
+            }
+            f(idx+1);
+            sy[i]++;
+            ret1 = max(ret1, sum);
+            ret2 = min(ret2, sum);
+        }
+        //sy[i]++;
+    }
+}
+
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    cin >> n;
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+    }
+    sum = a[0];
+    for(int i=0;i<4;i++){
+        cin >> sy[i];
+    }
+    f(0);
+    cout << ret1<< '\n' << ret2;
+}
