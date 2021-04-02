@@ -1,0 +1,59 @@
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath> 
+#include <math.h>
+#include <string>
+using namespace std;
+#define maxn 51
+int main()
+{
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    vector<int> prime(n+1);
+    for(int i=1;i<=n;i++){
+        prime[i] = true;
+    }
+    vector<int> a;
+    for(int i=2;i*i<=n;i++){
+        if(prime[i] == true){
+            for(int j=i*2;j<=n;j+=i){
+                prime[j] = false;
+            }
+        }
+    }
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        ll a,b;
+        cin >> a >> b;
+        ll t = a*b;
+    }
+    vector<ll> ans;
+    while(t > 1){
+        for(int i=2;i<=n;i++){
+            if(prime[i] == true){
+                //cout << i << ' ';
+                if(t%i==0){
+                    t /= i;
+                    ans.push_back(i);
+                }
+            }
+        }
+    }
+    sort(ans.begin(), ans.end());
+    for(int x:ans){
+        cout << x << '\n';
+    }
+    
+    
+    
+}
