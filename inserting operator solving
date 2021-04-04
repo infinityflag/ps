@@ -155,23 +155,15 @@ int maxn = -1e9;
 int minn = 1e9;
 int ret1 = -1e9;
 int ret2 = 1e9;
-int sum;
+int sum = 0;
 void f(int idx){//idx번째의 수에 남은 toPick 개의 수를 모두 고르는 경우의 수
     if(idx == n-1){
-        maxn = max(sum, maxn);
-        minn = min(minn, sum);
         return;
     }
-    /*
-    for(int i=0;i<n;i++){
-        sum += a[i];
-        f(idx+1, toPick-1);
-    }
-    */
     for(int i=0;i<4;i++){
         if(sy[i]>0){
             if(i==0){
-                sum += a[idx]; 
+                sum += a[idx];
                 sy[0]--;
             }
             if(i==1){
@@ -182,8 +174,8 @@ void f(int idx){//idx번째의 수에 남은 toPick 개의 수를 모두 고르�
                 sum *= a[idx];
                 sy[2]--;
             }
-            if(i==3){
-                sum /= a[idx];
+            if(i==3&& idx > 1){
+                sum = a[idx-1]/a[idx];
                 sy[3]--;
             }
             f(idx+1);
