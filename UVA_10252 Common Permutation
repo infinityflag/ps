@@ -1,0 +1,44 @@
+wa...
+
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <math.h>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+using namespace std;
+typedef long long ll;int main()
+{
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    string s1,s2;
+    while(cin >> s1 >> s2){
+        vector<char> ans;
+        for(int i=0;i<s1.size();i++){
+            for(int j=0;j<s2.size();j++){
+                if(s1[i] == s2[j]){
+                    ans.push_back(s1[i]);
+                }
+            }
+        }
+        ans.erase(unique(ans.begin(),ans.end()), ans.end());
+        sort(ans.begin(), ans.end());
+        for(char i:ans){
+            cout << i;
+        }
+        cout << '\n';
+    }
+    
+    
+    
+    
+}
