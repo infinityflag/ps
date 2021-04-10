@@ -113,3 +113,64 @@ int main()
         
     }
 }
+
+
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <math.h>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    int t;
+    cin >> t;
+    char cy[] = "the quick brown fox jumps over the lazy dog";
+    int cnt = 0;
+    while(getline(cin, i)){
+        if(t=='\n'){
+            cnt++;
+            if(cnt > t){
+                break;
+            }
+        }
+        string s[80];
+        for(int i=0;i<80;i++){
+            getline(cin, s[i]);
+        }
+        char key;
+        for(int i=0;i<80;i++){
+            for(int j=0;j<80;j++){
+                for(char k='a';k<'z';k++){
+                    if(s[i][j] +k == cy[j]){
+                        cout << s[i][j] + k;
+                        key = j;
+                        break;
+                    }
+                }
+            }
+                
+        }
+        for(int i=0;i<80;i++){
+            for(int j=0;j<80;j++){
+                cout << s[i][j] + key;
+            }
+            cout <<'\n';
+        }
+        
+        
+        
+    }
+}
