@@ -47,3 +47,80 @@ int main()
         }
     }
 }
+
+
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <math.h>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <string>
+using namespace std;
+typedef long long ll;
+int arr[305][305];
+int psa[501][501];
+
+bool check(char pr, char cu){
+    if(pr == '('){
+        if(cu == ')'){
+            return true;
+        }
+        else return false;
+    }
+    else{
+        if(cu == '}'){
+            return true;
+        }
+        else return false;
+    }
+}
+
+int main()
+{
+    string s;
+    while(getline(cin,s)){
+        if(s == "."){
+            return 0;
+        }
+        int score = 0;
+        char prev;
+        for(char c: s){
+            if(c == '('){
+                score += 1;
+                prev = '(';
+            }
+            if(c == ')'){
+                if(score >= 1){
+                    score -= 1;
+                }
+            }
+            if(c == '['){
+                score += 2;
+                prev = '[';
+                
+            }
+            if(c == ']'){
+                if(score >= 2){
+                    score -= 2;
+                }
+            }
+        }
+        if(score == 0){
+            cout << "yes" <<'\n';
+        }
+        else{
+            cout << "no" <<'\n';
+        }
+    }
+}
+
