@@ -78,7 +78,7 @@ bool check(char pr, char cu){
         else return false;
     }
     else{
-        if(cu == '}'){
+        if(cu == ']'){
             return true;
         }
         else return false;
@@ -88,34 +88,42 @@ bool check(char pr, char cu){
 int main()
 {
     string s;
+    stack<int> st;
     while(getline(cin,s)){
         if(s == "."){
             return 0;
         }
         int score = 0;
-        char prev;
+        char first;
+        for(char c: s){
+            if(c == '(' || c == ')' || c == '[' || c == ']'){
+                first = c;
+                break;
+            }
+        }
+        bool t = false;
+        if(first == ')' || first == ']'){
+            t = true;
+        }
         for(char c: s){
             if(c == '('){
                 score += 1;
-                prev = '(';
             }
             if(c == ')'){
-                if(score >= 1){
+                //if(score >= 1){
                     score -= 1;
-                }
+                //}
             }
             if(c == '['){
                 score += 2;
-                prev = '[';
-                
             }
             if(c == ']'){
-                if(score >= 2){
+                //if(score >= 2){
                     score -= 2;
-                }
+                //}
             }
         }
-        if(score == 0){
+        if(!t && score == 0){
             cout << "yes" <<'\n';
         }
         else{
@@ -123,4 +131,5 @@ int main()
         }
     }
 }
+
 
