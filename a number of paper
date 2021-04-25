@@ -1,0 +1,108 @@
+#include<iostream>
+#include<deque>
+#include<vector>
+#include<math.h>
+#include<cmath>
+typedef long long ll;
+using namespace std;
+long long lim = 1e8;
+int cnt[5*100000];
+int a[5000][5000];
+//int cnt = 0;
+void solve(int x, int y, int k, int cnt){
+    if(k == 1){
+        cnt++;
+        //cout << a[x][y];
+        return;
+    }
+    else{
+        for(int i=0;i<x+k;i++){
+            for(int j=0;j<y+k;j++){
+                if(a[x][y] != a[i][j]){
+                    if(a[i][j] == -1){
+                        
+                    }
+                    if(a[i][j] == 0){
+                        
+                    }
+                    if(a[i][j] == 1){
+                        
+                    }
+                    solve(x,y,k/3);
+                    return;
+                }
+            }
+        }
+        //cout << a[x][y];
+        cnt++;
+    }
+}
+int main(){
+    int n;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin >> a[i][j];
+        }
+    }
+    cout << solve(0,0,n);
+
+}
+
+second try..
+#include<iostream>
+#include<deque>
+#include<vector>
+#include<math.h>
+#include<cmath>
+typedef long long ll;
+using namespace std;
+long long lim = 1e8;
+int cnt[5*100000];
+int a[5000][5000];
+int cnta = 0,cntb=0,cntc=0;
+void c(int a[5000][5000], int i, int j){
+    if(a[i][j] == -1){
+        cnta++;
+    }
+    if(a[i][j] == 0){
+        cntb++;
+    }
+    if(a[i][j] == 1){
+        cntc++;
+    }
+}
+void solve(int x, int y, int k){
+    if(k == 1){
+        c(a,x,y);
+        return;
+    }
+    else{
+        for(int i=0;i<x+k;i++){
+            for(int j=0;j<y+k;j++){
+                if(a[x][y] != a[i][j]){
+                    c(a,i,j);
+                    for(int i=0;i<=3;i++){
+                        solve(x+(i)*k/3, y+(i)*k/3,k/3);
+                    }
+                    return;
+                }
+            }
+        }
+        c(a,x,y);
+        //cout << a[x][y];
+        //cnt++;
+    }
+}
+int main(){
+    int n;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin >> a[i][j];
+        }
+    }
+    solve(0,0,n);
+    cout << cnta << '\n' << cntb << '\n' << cntc<<'\n';
+}
+
