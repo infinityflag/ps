@@ -1,0 +1,48 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+#define inf 1e9
+int a[1005];
+int n,k;
+vector<int> v;
+void solve(){
+    cin >> n;
+    int minn = 1e9;
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+        minn = min(minn, a[i]);
+    }   
+    
+    for(int i=1;i<=minn;i++){
+        if(n%a[i]==0){
+            
+        }
+    }
+    /*
+    for(int i:v){
+        cout << i << ' ';
+    }
+    */ 
+    if(k > v.size()){
+        cout << 0; 
+    }
+    else cout << v[k-1]; 
+}
+int main(){
+    solve();
+    return 0;
+}
