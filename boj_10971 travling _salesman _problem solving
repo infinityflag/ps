@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+#define inf 1e9
+int n;
+int a[101][101];
+int ans = 1e9;
+vector<int> path; 
+vector<bool> visit(n,false); 
+int shortest_path(vector<int>& path, vector<bool>& visit, int cost){
+    if(path.size() == n){
+        return cost+a[path[0]][path.back()]; 
+    }
+    for(int next = 1; next <= n; next++){
+        if(!visit[next]){
+            visit[next] = true;
+            int pre = path.back(); 
+            path.push_back(next);
+            ans = min(ans, shortest_path(path, visit,cost + a[pre][next]));
+            visit[next] = false;
+            path.pop_back();   
+        }
+    }
+    return ans;
+}
+void solve(){
+    cin >> n;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cin >> a[i][j];
+        }
+    }
+    cout << shortest_path(path,visit,0);
+}
+int main(){
+    solve();
+    return 0;
+}
