@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+int n;
+//(1,1),(2,2),(3,3); 차가 일정 
+//(1,4),(2,3),(3,2),(4,1); 합이 일정
+//8 92
+//행이 같거나, 대각선인 경우
+int col[30];
+int inc[30];
+int de[30];
+int a[30][30]; 
+int ans=1;
+void solve(int idx){
+    if(idx >= n+1){
+        ans++;
+        return;
+    }
+    for(int i=1;i<=n;i++){
+        if(a[idx][i]==1 && !inc[idx+i] && !de[n+(idx-i)+1]){
+            a[idx][i] = 0;
+            inc[idx+i] = de[n-i+1] = 1;
+            solve(idx+1);
+            a[idx][i] = 1;
+            inc[idx+i] = de[n-i+1] = 0;
+        }
+    }
+}
+void input(){
+    cin >> n;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cin >> a[i][j]; 
+        }
+    }
+    solve(1);
+    cout <<ans;
+}
+int main(){
+    input();
+    return 0;
+}
