@@ -1,0 +1,68 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+#define inf 1e9
+int n;
+int a[101][101];
+int ans = 1e9;
+vector<int> path; 
+vector<bool> visit(n,false); 
+int start_city;
+//dist가 작은 값까지 탐색을 하도록 한다.
+//하나의 점으로 했을 때 최소 거리를 구하는 함수를 만든다. 
+//다른 경찰차도 마찬가지로 만든다.
+//그동안 이동했던 거리의 cnt를 구한다.  
+int n,m;
+int car1= 1e9,car2=1e9;
+int dist_x1, dist_y1, dist_x2, dist_y2;
+int k, l;
+int w;
+int E[1005][2];
+int ans = 1e9;
+int dist(int a, int b){
+    return abs(E[a][0]-E[b][0]) + abs(E[a][1]-E[b][1]);
+}
+void solve(int a, int b, int c){
+    int next = (a>b?a:b)+1;
+    if(next >= m+2){
+        ans = min(ans, c);
+        return;
+    }
+    solve(next,b,c+dis(a,next));
+    solve(a,next,c+dis(b,next));
+}
+void solve2(int x, int y, int c){
+    if(x > n || y > m) return;
+    if(x == dist_x2 && y == dist_y1){
+        car1 = min(c, car1);
+    }
+    f(x+1,y,c+1);
+    f(x,y+1,c+1);
+}
+void input(){
+    cin >> n >> k;
+    for(int i=0;i<k;i++){
+        cin >> E[i][0] >> E[i][1];
+    }
+    solve(0,1,0);
+}
+
+int main(){
+    input();
+    solve();
+    return 0;
+}
