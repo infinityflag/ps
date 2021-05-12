@@ -95,16 +95,12 @@ void input(){
     cin >> n;
     int minn = 1e9; 
     for(int i=0;i<n;i++){
-        cin >> arr[i];
-        minn = min(minn, arr[i]); 
-    }
-    for(int i=0;i<n;i++){
-        if(){
-            
+        for(int j=0;j<n;j++){
+            cin >> a[i][j];
         }
     }
-    cout << minn*n;
-
+    solve(1,0,0);
+    cout << ans;
 
 }
 
