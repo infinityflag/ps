@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+#define inf 1e9
+int n,k;
+int ans = 0;
+int d[105][105];
+void input(){
+    cin >> n >> k;
+    d[n][1] = n, d[n][n] = 1;
+    d[n][k] = 1;
+    for(int i=n;i>=1;i--){
+        for(int j=k;j>=1;j--){
+            d[i][j] = d[i-1][j] + d[i-1][j-1];
+        }
+
+    }
+
+}
+
+int main(){
+    input();
+    return 0;
+}
