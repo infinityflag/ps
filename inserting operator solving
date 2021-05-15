@@ -258,6 +258,74 @@ void f(int idx){//idx번째의 수에 남은 toPick 개의 수를 모두 고르�
 }
 
 
+fifth try -> ac
+
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <string>
+typedef long long ll;
+using namespace std;
+int a[1000000];
+int sy[5];
+int n,m;
+int maxn = -1e9;
+int minn = 1e9;
+int sum;//너무 복잡하다..
+//그런데 이게 만약 그렇게 된다면..
+int cal(int i, int idx, int ret){
+    if(i == 0){
+        return ret + a[idx];
+    }
+    if(i == 1){
+        return ret - a[idx];
+    }
+    if(i == 2){
+        return ret * a[idx];
+    }
+    return ret / a[idx];
+}
+void f(int idx, int ret){
+    if(idx == n){
+        maxn = max(maxn, ret);
+        minn = min(minn, ret);
+        return;
+    }
+    for(int i=0;i<4;i++){
+        if(sy[i]>0){
+            //p의 값을 누적을 하면 다르지 않은 결과
+            sy[i]--;
+            f(idx+1, cal(i,idx,ret));
+            sy[i]++;
+        }
+    }
+}
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    cin >> n;
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+    }
+    for(int i=0;i<4;i++){
+        cin >> sy[i];
+    }
+    f(1,a[0]);
+    cout << maxn <<'\n' << minn;
+}
+
+
+
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0);
     cin >> n;
