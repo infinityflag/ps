@@ -1,0 +1,45 @@
+
+
+
+#2. 큰무표 짜기
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+using namespace std;
+//#define mod 1e9;
+typedef long long ll;
+
+int main(){
+    
+    int n,k;
+    cin >> n >> k;
+    vector<int> a(n), b(n);
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+    }
+    for(int i=0;i<k;i++){
+        cin >> b[i]; 
+    }
+    vector<int> ans[101];
+    for(int i=0;i<k;i++){
+        int count = 0;
+        while(a[i] <= 0 && count < b[i]){
+            count++; 
+            //ans[i].push_back(i+1);
+            cout << i+1 << ' ';
+            a[i]--;
+        }
+        cout << '\n';
+    }
+    //cout << 1;
+    for(int i=0;i<k;i++){
+        for(int j = 0; j < ans[i].size(); j++){
+           // cout << ans[i][j] << ' ';
+        }
+        //cout << '\n';
+    }
+    
+}
